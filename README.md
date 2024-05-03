@@ -1,4 +1,4 @@
-# [Project Name]
+# Heart Disease Classification
 
 ## Description
 Provide a brief description of the project and its objectives.
