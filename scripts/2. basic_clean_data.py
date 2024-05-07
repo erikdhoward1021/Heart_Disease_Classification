@@ -1,10 +1,13 @@
-from src.data.basic_clean import basic_clean
+import sys
+sys.path.insert(0, 'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/src/data/')
+from basic_clean import basic_clean
 
 # Read the raw data
 path = 'data/raw/heart_statlog_cleveland_hungary_final.csv'
 
 # Perform initial basic cleaning
-clean_data = basic_clean(path)
+male_df, female_df = basic_clean(path)
 
 # Save the cleaned data
-clean_data.to_csv('data/cleaned/clean_data.csv', index=False)
+male_df.to_csv('data/cleaned/male_data.csv', index=False)
+female_df.to_csv('data/cleaned/female_data.csv', index=False)
