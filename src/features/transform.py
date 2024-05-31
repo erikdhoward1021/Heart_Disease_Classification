@@ -34,7 +34,7 @@ def transform_data(data_path: str, target_column: str = 'target', population: st
     data['oldpeak'] = data['oldpeak'].astype('int32')
     data['st_slope'] = data['st_slope'].astype('category')
     data['target'] = data['target'].astype('category')
-
+    
     # Separate the features and target variable
     X = data.drop(target_column, axis=1)
     y = data[target_column]

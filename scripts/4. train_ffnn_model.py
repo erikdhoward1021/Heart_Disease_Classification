@@ -1,9 +1,7 @@
 import torch
 import pandas as pd
 from datetime import datetime
-import sys
-sys.path.insert(0, 'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/src/models/')
-from FFNN import FFNN
+from src.models.FFNN import FFNN
 from torch.utils.data import DataLoader, Dataset
 
 import torch.nn as nn

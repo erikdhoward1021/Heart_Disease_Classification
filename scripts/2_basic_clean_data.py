@@ -1,6 +1,4 @@
-import sys
-sys.path.insert(0, 'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/src/data/')
-from basic_clean import basic_clean
+from src.data.basic_clean import basic_clean
 
 # Read the raw data
 path = 'data/raw/heart_statlog_cleveland_hungary_final.csv'
