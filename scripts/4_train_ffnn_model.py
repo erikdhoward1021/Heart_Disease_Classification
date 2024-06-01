@@ -11,7 +11,7 @@ import torch.optim as optim
 class ModelDataset(Dataset):
     def __init__(self, train_feature_path, train_target_path):
         # Load the data from the data_path
-        self.features = pd.read_csv(train_feature_path).values
+        self.features = pd.read_csv(train_feature_path).fillna(0).values
         self.target = pd.read_csv(train_target_path).values
         self.target = self.target.reshape(-1)
 
@@ -26,8 +26,8 @@ class ModelDataset(Dataset):
         return sample_features, sample_target
 
 # Set the path to your male_data
-male_features_path = 'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/data/processed/male_train_features.csv'
-male_target_path = 'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/data/processed/male_train_target.csv'
+male_features_path = 'data/processed/male_train_features.csv'
+male_target_path = 'data/processed/male_train_target.csv'
 
 # Create an instance of your custom dataset
 male_dataset = ModelDataset(train_feature_path=male_features_path, train_target_path=male_target_path)
@@ -38,7 +38,7 @@ data_loader = DataLoader(male_dataset, batch_size=batch_size, shuffle=True)
 
 # Create an instance of your FFNN model
 input_size = len(male_dataset.features[0])
-hidden_size = 64
+hidden_size = 100
 output_size = len(set(male_dataset.target.flatten()))
 model = FFNN(input_size, hidden_size, output_size)
 
@@ -46,11 +46,11 @@ model = FFNN(input_size, hidden_size, output_size)
 criterion = nn.CrossEntropyLoss()
 
 # Define the optimizer
-lr = 0.005
+lr = 0.0001
 optimizer = optim.Adam(model.parameters(), lr=lr)
 
 # Set the number of training epochs
-num_epochs = 100
+num_epochs = 150
 
 # Training loop
 for epoch in range(num_epochs):
@@ -67,6 +67,7 @@ for epoch in range(num_epochs):
     # Print the loss after each epoch
     print(f"Epoch {epoch+1}/{num_epochs}, Loss: {loss.item()}")
 
-time = datetime.now().strftime("%Y%m%d%H%M%S")
+date = datetime.now().strftime("%Y%m%d")
+loss = loss.item()
 # Save the trained model
-torch.save(model.state_dict(), f'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/models/Male_FFNN_{time}.pth')
+torch.save(model.state_dict(), f'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/models/Male_FFNN_date_{date}_loss_{loss}.pth')
