@@ -1,0 +1,12 @@
+# MODEL PARAMETERS
+INPUT_SIZE = 22
+HIDDEN_SIZE = 100
+OUTPUT_SIZE = 1
+BATCH_SIZE = 16
+MODEL_VERSION = 'FFNN_date_20240603_loss_0.337.pth'
+ENCODER_VERSION = '2'
+SCALER_VERSION = '2'
+
+# PATHS
+X_TRAIN_PATH = 'data/train/train_features.csv'
+Y_TRAIN_PATH = 'data/train/train_target.csv'
