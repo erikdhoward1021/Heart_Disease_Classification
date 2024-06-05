@@ -1,7 +1,7 @@
 # Heart Disease Classification
 
 ## Description
-Provide a brief description of the project and its objectives.
+This is an example project to demonstrate how to use the Standard Project Template. However, from a data science perspective, this project aims to train a model to classify the presence of heart disease. There is a standard module for handling the different dataframes, and a Flask app has been created for hosting and serving the model.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -12,40 +12,36 @@ Provide a brief description of the project and its objectives.
 - [ROI KPIs](#roi-kpis)
 - [Success Criteria](#success-criteria)
 - [Contributing](#contributing)
-- [Code of Conduct](#code-of-conduct)
-- [Contact](#contact)
-- [Release Notes](#release-notes)
 - [Roadmap](#roadmap)
 - [Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
-- [Troubleshooting](#troubleshooting)
 - [References](#references)
 - [Appendix](#appendix)
 - [Credits](#credits)
 
 ## Installation
-Describe the steps required to install the project dependencies. Include any specific versions or configurations that are necessary. For example:  
-To use our machine learning model, install the required dependencies listed in the `requirements.txt` file.
-
+To use, deploy, and/or retrain this machine learning model, install the dependencies listed in the `requirements.txt` file.
 
 ## Usage
-Explain how to use the project, including any command-line arguments or configuration options. Provide examples or code snippets if applicable. For example:  
-1. Run the `predict.py` script in `/scripts` with the necessary input data.
-2. The script will output the predicted results based on the trained model found in `/models`.
+1. For local API usage, deploy the Flask app by:
+   1. Navigating to the root direction `..\Heart_Disease_Classifcation`
+   1. Executing the script: `python -m app.inference_script` (this will launch a flask app, likely with an address of `http://127.0.0.1:8000`)
+1. Generate inference by following the steps outline in `notebooks/Endpoint_Example.ipynb`
+
+For an offline (non-API) example, see `notebooks/Create_Results.ipynb`.
 
 ## Data
-Describe the data used in the project, including its source, format, and any preprocessing steps that were applied. Provide instructions on how to access or download the data.
+Data was sourced from kaggle (`mexwell/heart-disease-dataset`). If you would like to source it net-new, please execute `scripts/1_fetch_data.py` from the root directory (e.g., `python -m scripts.1_fetch_data`)
 
 ## Model Training
-Explain the process of training the machine learning model. Include details on the algorithms, techniques, and hyperparameters used. Provide code snippets or scripts if available.
+For this example, I created a Feed Forward Neural Network using PyTorch. Specifically, it has 2 hidden layers with each layer having a dimension of 100. See `config.py` for model specifics.
 
 ## Evaluation
-Describe how the model's performance is evaluated. Include the metrics used, any visualization techniques, and the expected output. Provide code snippets or scripts if available.
+Two files have been created to demonstrate how evaluation could be performed: `scripts/4_evaluate_model.py` and `notebooks/Endpoint_Example.ipynb`
+
+In the notebook, you'll see an example creation of a confusion matrix to evaluate both True and False predictions.
 
 ## ROI KPIs
-To measure the success of our machine learning model, we will track the following ROI KPIs:
-1. $PLACEHOLDER$: Describe the first ROI KPI and how it will be measured.
-2. $PLACEHOLDER$: Describe the second ROI KPI and how it will be measured.
-3. $PLACEHOLDER$: Describe the third ROI KPI and how it will be measured.
+This particular project would not necessarily have any ROI KPIs for Deloitte, but here, we would outline what targets are and how we plan to measure them moving forward (e.g., reduction in YoY Diagnosis of Heart Disease for this model)
 
 ## Success Criteria
 We will consider our project successful if we achieve the following:
@@ -55,25 +51,13 @@ We will consider our project successful if we achieve the following:
 4. Improve the performance metric by a significant margin compared to the baseline.
 
 ## Contributing
-Explain how other team members can contribute to the project. Include guidelines for submitting bug reports, feature requests, or code contributions.
-
-## Code of Conduct
-Specify the code of conduct that contributors and users are expected to follow.
-
-## Contact
-Provide contact information for the project maintainer or team members who can be reached for questions or support.
-
-## Release Notes
-Include release notes for each version of the project, highlighting new features, bug fixes, and improvements.
+In order to contribute to this project, please follow GitHub best practices: submit enhancements / issues / feature requests via GitHub Issues; make code contributions on new branches (pull requests to main will be reviewed prior to merging)
 
 ## Roadmap
-Outline the future plans and goals for the project. Include any upcoming features, improvements, or bug fixes.
+Likely valuable to outline the future plans and goals for the project. Include any upcoming features, improvements, or bug fixes.
 
 ## Frequently Asked Questions (FAQ)
 Address common questions or concerns that users may have about the project.
-
-## Troubleshooting
-Provide troubleshooting tips or solutions for common issues that users may encounter.
 
 ## References
 List any relevant articles, papers, or documentation that users can refer to for further information.
@@ -82,6 +66,6 @@ List any relevant articles, papers, or documentation that users can refer to for
 Include any additional information or resources that may be helpful for users.
 
 ## Credits
-List the contributors or team members who have worked on the project.
+Erik Howard (erihoward@deloitte.com)
 
 

@@ -77,4 +77,4 @@ for epoch in range(num_epochs):
 date = datetime.now().strftime("%Y%m%d")
 loss = round(epoch_loss, 3)
 # Save the trained model
-torch.save(model.state_dict(), f'C:/Users/erihoward/Documents/GitHub/Heart_Disease_Classification/models/FFNN_date_{date}_loss_{loss}.pth')
+torch.save(model.state_dict(), f'models/FFNN_date_{date}_loss_{loss}.pth')

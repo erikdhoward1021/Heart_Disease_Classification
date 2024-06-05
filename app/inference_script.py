@@ -6,7 +6,7 @@ import pandas as pd
 import json
 import torch
 from src.models.FFNN import FFNN
-from config import INPUT_SIZE, HIDDEN_SIZE, OUTPUT_SIZE, MODEL_VERSION, ENCODER_VERSION, SCALER_VERSION
+from config import INPUT_SIZE, HIDDEN_SIZE, OUTPUT_SIZE, MODEL_VERSION, ENCODER_ARTIFACT, SCALER_ARTIFACT
 import pickle
 
 app = Flask(__name__)
@@ -16,24 +16,33 @@ input_size = INPUT_SIZE
 hidden_size = HIDDEN_SIZE
 output_size = OUTPUT_SIZE
 model = FFNN(input_size, hidden_size, output_size)
-model.load_state_dict(torch.load(f'models/{MODEL_VERSION}'))
+model.load_state_dict(torch.load(MODEL_VERSION))
 model.eval()
 
 # Load the encoder and scaler
-encoder = pickle.load(open(f'models/pipelines/encoder_v{ENCODER_VERSION}.pkl', 'rb'))
-scaler = pickle.load(open(f'models/pipelines/scaler_v{SCALER_VERSION}.pkl', 'rb'))
+encoder = pickle.load(open(ENCODER_ARTIFACT, 'rb'))
+scaler = pickle.load(open(SCALER_ARTIFACT, 'rb'))
 
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
         # Load the data
-        received_data = pd.DataFrame(request.get_json()['data'])
+        json_data = request.get_json()['data']
+        
+        # Check the structure of the incoming data prior to transforming it
+        # Specifically, check if the data is a nested list or a single list
+        if isinstance(json_data[0], list):
+            json_data = json_data
+        else:
+            json_data = [json_data]
+
+        received_data = pd.DataFrame(json_data)
 
         # Assign to Dataset object
         dataset = Dataset(received_data, 'inference')
 
         # Clean the data
-        dataset.clean_data()
+        dataset.basic_clean()
 
         # Transform and return the data
         transformed_data = dataset.transform_data()['X_inference']

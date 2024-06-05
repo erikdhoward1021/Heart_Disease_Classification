@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 import pickle
-from config import ENCODER_VERSION, SCALER_VERSION
+from config import ENCODER_ARTIFACT, SCALER_ARTIFACT
 
 class Dataset():
     def __init__(self, data: Union[str, pd.DataFrame], type: str, target_column: str = None):
@@ -150,8 +150,8 @@ class Dataset():
 
         elif self.type == 'inference':
             # Load the encoder and scaler
-            encoder = pickle.load(open(f'models/pipelines/encoder_v{ENCODER_VERSION}.pkl', 'rb'))
-            scaler = pickle.load(open(f'models/pipelines/scaler_v{SCALER_VERSION}.pkl', 'rb'))
+            encoder = pickle.load(open(ENCODER_ARTIFACT, 'rb'))
+            scaler = pickle.load(open(SCALER_ARTIFACT, 'rb'))
 
             # Encode X_train categorical variables using OneHotEncoder
             categorical_cols = self.cleaned_data.select_dtypes(include='category').columns
