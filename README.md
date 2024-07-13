@@ -1,7 +1,7 @@
 # Heart Disease Classification
 
 ## Description
-This is an example project that demonstrates a full code base to train a model to classify the presence of heart disease. There is a standard module for handling the different dataframes, and a Flask app has been created for hosting and serving the model. While full feature engineering, hyperparameter tuning, etc. have been performed due to time constraints, the overaching approach is representative of the approach and methodology necessary for the successful development of a production machine learning model. 
+This is an example project that demonstrates a code base to train a model to classify the presence of heart disease. There is a standard module for handling the different dataframes, and a Flask app has been created for hosting and serving the model. While full feature engineering, hyperparameter tuning, etc. have been performed due to time constraints, the overaching approach is representative of the approach and methodology necessary for the successful development of a production machine learning model. 
 
 ## Table of Contents
 - [Installation](#installation)
