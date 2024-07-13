@@ -33,7 +33,7 @@ For an offline (non-API) example, see `notebooks/Create_Results.ipynb`.
 Data was sourced from kaggle (`mexwell/heart-disease-dataset`). If you would like to source it net-new, please execute `scripts/1_fetch_data.py` from the root directory (e.g., `python -m scripts.1_fetch_data`)
 
 ## Model Training
-For this example, I created a Feed Forward Neural Network using PyTorch. Specifically, it has 2 hidden layers with each layer having a dimension of 100. See `config.py` for model specifics.
+For this basic example, I created a Feed Forward Neural Network using PyTorch. Specifically, it has 2 hidden layers with each layer having a dimension of 100. See `config.py` for model specifics.
 
 ## Evaluation
 Two files have been created to demonstrate how evaluation could be performed: `scripts/4_evaluate_model.py` and `notebooks/Endpoint_Example.ipynb`
@@ -41,11 +41,11 @@ Two files have been created to demonstrate how evaluation could be performed: `s
 In the notebook, you'll see an example creation of a confusion matrix to evaluate both True and False predictions.
 
 ## ROI KPIs
-This particular project would not necessarily have any ROI KPIs for Deloitte, but here, we would outline what targets are and how we plan to measure them moving forward (e.g., reduction in YoY Diagnosis of Heart Disease for this model)
+This particular project does not necessarily have any ROI KPIs since it is an example, but here, we would outline specific KPIs & targets and how we plan to measure them moving forward (e.g., reduction in YoY Diagnosis of Heart Disease for this model)
 
 ## Success Criteria
 We will consider our project successful if we achieve the following:
-1. Develop a fully functional machine learning pipeline from data preprocessing to model training and evaluation.
+1. Develop a fully functional machine learning pipeline from data preprocessing to model training, evaluation, and orchestrated deployment.
 2. Achieve a baseline performance metric that exceeds a predefined threshold.
 3. Iterate on the pipeline by augmenting with additional data, performing feature engineering, and incorporating feedback from end users.
 4. Improve the performance metric by a significant margin compared to the baseline.
@@ -66,6 +66,6 @@ List any relevant articles, papers, or documentation that users can refer to for
 Include any additional information or resources that may be helpful for users.
 
 ## Credits
-Erik Howard (erihoward@deloitte.com)
+Erik Howard (erikdhoward@gmail.com)
 
 
